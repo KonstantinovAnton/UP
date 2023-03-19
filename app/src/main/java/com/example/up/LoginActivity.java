@@ -13,27 +13,28 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText email, password;
+    EditText email;
+    EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        email = findViewById(R.id.etEmail);
-        password = findViewById(R.id.etPassword);
+        email = findViewById(R.id.editTextEmail);
+        password = findViewById(R.id.editTextPassword);
     }
     public void nextMain(View v)
     {
         if(email.getText().toString().equals("") || password.getText().toString().equals(""))
         {
-            Toast.makeText(LoginActivity.this, "Все поля должны быть заполнены!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
         }
         else
         {
-            Pattern p = Pattern.compile("@", Pattern.CASE_INSENSITIVE);
-            Matcher m = p.matcher(email.getText().toString());
-            boolean b = m.find();
+            Pattern pattern = Pattern.compile("@", Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(email.getText().toString());
+            boolean b = matcher.find();
             if(b)
             {
                 startActivity(new Intent(this, MainActivity.class));

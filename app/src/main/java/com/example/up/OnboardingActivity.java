@@ -8,6 +8,9 @@ import android.view.View;
 
 public class OnboardingActivity extends AppCompatActivity {
 
+    public static String avatarka;
+    public static String nick;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
